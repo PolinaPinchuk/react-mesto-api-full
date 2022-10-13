@@ -1,0 +1,20 @@
+.header__logout-link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  margin: 0 0 46px 0;
+  color: #A9A9A9;
+  background-color: #000;
+  cursor: pointer;
+  }
+  
+  @media screen and (max-width: 450px) { 
+    
+    .header__logout-link {
+      margin-left: 0;
+    }
+  
+  }

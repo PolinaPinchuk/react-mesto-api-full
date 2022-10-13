@@ -1,0 +1,10 @@
+.element__likes {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 38px;
+    max-width: 22px;
+    overflow: hidden;
+}

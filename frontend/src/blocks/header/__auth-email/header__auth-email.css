@@ -1,0 +1,16 @@
+.header__auth-email {
+    font-size: 18px;
+    line-height: 22px;
+    margin-right: 0;
+    align-self: center;
+    color: #FFFFFF;
+    margin: 0 24px 46px 0;
+  }
+  
+  @media screen and (max-width: 450px) {
+  
+    .header__auth-email {
+      margin-right: 0;
+    }
+    
+  }

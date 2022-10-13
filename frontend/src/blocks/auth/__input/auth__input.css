@@ -1,0 +1,9 @@
+.auth__input {
+    background-color: black;
+    width: 97%;
+    border: none;
+    font-family: inherit;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 7px;
+    color: #fff;
+  }
