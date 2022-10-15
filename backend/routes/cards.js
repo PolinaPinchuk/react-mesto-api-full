@@ -1,8 +1,16 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
+const validator = require('validator');
 const {
   createCard, getCards, deleteCard, likeCard, dislikeCard,
 } = require('../controllers/cards');
+
+const validateURL = (value) => {
+  if (!validator.isURL(value, { require_protocol: true })) {
+    throw new Error('Неправильный формат ссылки');
+  }
+  return value;
+};
 
 router.get('/', getCards);
 router.post(
@@ -10,8 +18,8 @@ router.post(
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().min(2).max(30).required(),
-      link: Joi.string().uri({ scheme: ['http', 'https'] }).required(),
-    }).unknown(true),
+      link: Joi.string().custom(validateURL).required(),
+    }),
   }),
   createCard,
 );
