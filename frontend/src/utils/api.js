@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.polina.mesto.nomoredomains.icu';
+export const BASE_URL = 'https://api.polina.mesto.nomoredomains.icu';
 class Api {
     constructor({ baseUrl, headers}) {
         this._headers = headers
@@ -89,7 +89,7 @@ addCard(data) {
   export const api = new Api({
     baseUrl: BASE_URL,
     headers: {
-      authorization: '2d3b8a20-7c88-48c1-9e40-d676058753f5',
+      // authorization: '2d3b8a20-7c88-48c1-9e40-d676058753f5',
       'Content-Type': 'application/json'
     }
   }); 
