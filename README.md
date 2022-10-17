@@ -5,7 +5,7 @@
 51.250.5.232
 
 Домен сервера
-http://api.polina.mesto.nomoredomains.icu/
+https://api.polina.mesto.nomoredomains.icu/
 
 Домен фронтенда
 https://polina.mesto.nomoredomains.icu/
