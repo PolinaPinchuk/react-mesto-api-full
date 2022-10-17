@@ -1,4 +1,5 @@
-export const BASE_URL = 'https://auth.nomoreparties.co'
+// export const BASE_URL = 'https://auth.nomoreparties.co'
+export const BASE_URL = 'http://api.polina.mesto.nomoredomains.icu/';
 
 const handleResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
