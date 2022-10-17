@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.polina.mesto.nomoredomains.icu';
+export const BASE_URL = 'http://api.polina.mesto.nomoredomains.icu';
 class Api {
     constructor({ baseUrl, headers}) {
         this._headers = headers
