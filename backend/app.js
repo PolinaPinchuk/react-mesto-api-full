@@ -27,7 +27,7 @@ app.use(helmet());
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
   'https://polina.mesto.nomoredomains.icu',
-  'http://api.polina.mesto.nomoredomains.icu',
+  'https://api.polina.mesto.nomoredomains.icu',
   'localhost:3000',
 ];
 
