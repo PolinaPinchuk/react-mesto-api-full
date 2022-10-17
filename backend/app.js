@@ -31,18 +31,20 @@ const allowedCors = [
   'localhost:3000',
 ];
 
+// Значение для заголовка Access-Control-Allow-Methods по умолчанию (разрешены все типы запросов)
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
 // eslint-disable-next-line consistent-return
 app.use((req, res, next) => {
   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
   // проверяем, что источник запроса есть среди разрешённых
   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
-  // Значение для заголовка Access-Control-Allow-Methods по умолчанию (разрешены все типы запросов)
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
   // сохраняем список заголовков исходного запроса
   const requestHeaders = req.headers['access-control-request-headers'];
   if (allowedCors.includes(origin)) {
     // устанавливаем заголовок, который разрешает браузеру запросы с этого источника
     res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Credentials', true);
   }
   // Если это предварительный запрос, добавляем нужные заголовки
   if (method === 'OPTIONS') {
@@ -53,7 +55,7 @@ app.use((req, res, next) => {
     // завершаем обработку запроса и возвращаем результат клиенту
     return res.end();
   }
-  next();
+  return next();
 });
 
 app.use(bodyParser.json()); // для собирания JSON-формата
