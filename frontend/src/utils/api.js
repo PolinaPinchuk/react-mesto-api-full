@@ -17,7 +17,11 @@ class Api {
 
     getProfile () {
       return fetch (`${this._baseUrl}/users/me`, {
-            headers: this._headers
+        method: 'GET',
+        headers: {
+          "Authorization": getToken(),
+          'Content-Type': 'application/json'
+        }
         }).then(this._checkResponse)
     }
 
@@ -25,7 +29,10 @@ class Api {
 
     getInitialCards() {
       return fetch (`${this._baseUrl}/cards`, {
-          headers: this._headers
+        headers: {
+          "Authorization": getToken(),
+          'Content-Type': 'application/json'
+        }
       }).then(this._checkResponse)
     }
 
@@ -84,6 +91,10 @@ addCard(data) {
     })
       .then(this._checkResponse)
   }
+}
+
+const getToken = () => {
+  return `Bearer ${localStorage.getItem('jwt')}`;
 }
   
   export const api = new Api({
