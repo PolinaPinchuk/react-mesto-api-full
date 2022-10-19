@@ -125,8 +125,8 @@ function App() {
 
   function handleRegister (password, email) {
     auth.register(password, email)
-      .then((result) => {
-        setEmail(result.data.email)
+      .then((res) => {
+        setEmail(res.email)
         history.push('/sign-in')
         setMessage({ img: success, text: 'Вы успешно зарегистрировались!' })
       })
@@ -137,9 +137,9 @@ function App() {
   function handleLogin(email, password) {
     auth
       .authorize(email, password)
-      .then((data) => {
+      .then((res) => {
         setEmail(email)
-        localStorage.setItem('jwt', data.token);
+        localStorage.setItem('jwt', res.token);
         checkToken();
       })
       .catch((error) => {
