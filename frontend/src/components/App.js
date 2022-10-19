@@ -160,7 +160,7 @@ function App() {
       history.push('/')
       auth.getCheckToken(jwt)
         .then((user) => {
-          setEmail(user.data.email)
+          setEmail(user.email)
         })
         .catch((error) => {
           console.log(error)
