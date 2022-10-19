@@ -1,7 +1,7 @@
 export const BASE_URL = 'https://api.polina.mesto.nomoredomains.icu';
 class Api {
     constructor({ baseUrl, headers}) {
-        this._headers = headers
+        // this._headers = headers
         this._baseUrl = baseUrl
       // тело конструктора
     }
@@ -41,7 +41,10 @@ class Api {
     editProfile(item) {
       return fetch (`${this._baseUrl}/users/me`, {
           method: "PATCH",
-          headers: this._headers,
+          headers: {
+            "Authorization": getToken(),
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify({
             name: item.name, 
             about: item.job
@@ -54,7 +57,10 @@ class Api {
 editAvatar(item) {
   return fetch(`${this._baseUrl}/users/me/avatar`, {
     method: 'PATCH',
-    headers: this._headers,
+    headers: {
+      "Authorization": getToken(),
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       avatar: item.avatar
     })
@@ -66,7 +72,10 @@ editAvatar(item) {
 addCard(data) {
   return fetch (`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        "Authorization": getToken(),
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         name: data.name, 
         link: data.link
@@ -79,7 +88,10 @@ addCard(data) {
     deleteCard(id) {
       return fetch (`${this._baseUrl}/cards/${id}`, {
           method: "DELETE",
-          headers: this._headers
+          headers: {
+            "Authorization": getToken(),
+            'Content-Type': 'application/json'
+          },
       }).then(this._checkResponse)
     }
 
@@ -87,7 +99,10 @@ addCard(data) {
   changeLikeCardStatus(id, isLiked) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       method: `${isLiked ?'PUT':'DELETE'}`,
-      headers: this._headers
+      headers: {
+        "Authorization": getToken(),
+        'Content-Type': 'application/json'
+      },
     })
       .then(this._checkResponse)
   }
