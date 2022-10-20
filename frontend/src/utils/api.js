@@ -114,8 +114,8 @@ const getToken = () => {
   
   export const api = new Api({
     baseUrl: BASE_URL,
-    headers: {
-      // authorization: '2d3b8a20-7c88-48c1-9e40-d676058753f5',
-      'Content-Type': 'application/json'
-    }
+    // headers: {
+    //   // authorization: '2d3b8a20-7c88-48c1-9e40-d676058753f5',
+    //   'Content-Type': 'application/json'
+    // }
   }); 
