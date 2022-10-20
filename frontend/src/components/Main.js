@@ -24,11 +24,11 @@ const currentUser = React.useContext(CurrentUserContext);
           props.cards.map((newCard) => { 
             return ( 
               <Card 
-                card={newCard}
                 key={newCard._id}
-                name={newCard.name}
-                link={newCard.link}
-                likes={newCard.likes.length}
+                card={newCard}
+                // name={newCard.name}
+                // link={newCard.link}
+                // likes={newCard.likes.length}
                 onCardClick={props.onCardClick}
                 onCardLike={props.onCardLike}
                 onCardDelete={props.onCardDelete}
