@@ -11,7 +11,8 @@ function Card(props) {
   `element__delete ${isOwn ? ' ' : 'element__delete_hidden'}`
   );
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
-  const isLiked = props.card.likes.some(i => i._id === currentUser._id);
+  // const isLiked = props.card.likes.some(i => i._id === currentUser._id);
+  const isLiked = props.card.likes.some(id => id === currentUser._id);
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const cardLikeButtonClassName = (
     `element__button ${isLiked ? 'element__button_active' : ' '}`
