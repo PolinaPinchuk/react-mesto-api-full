@@ -97,7 +97,7 @@ addCard(data) {
 
 // ПОСТАНОВКА И СНЯТИЕ ЛАЙКА
   changeLikeCardStatus(id, isLiked) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: `${isLiked ?'PUT':'DELETE'}`,
       headers: {
         "Authorization": getToken(),
