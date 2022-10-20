@@ -1,41 +1,41 @@
 import React from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Card(props) {
+function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = React.useContext(CurrentUserContext); 
 
   // Определяем, являемся ли мы владельцем текущей карточки
-  const isOwn = props.card.owner === currentUser._id;
+  const isOwn = card.owner === currentUser._id;
   // Создаём переменную, которую после зададим в `className` для кнопки удаления
   const cardDeleteButtonClassName = (
   `element__delete ${isOwn ? ' ' : 'element__delete_hidden'}`
   );
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   // const isLiked = props.card.likes.some(i => i._id === currentUser._id);
-  const isLiked = props.card.likes.some(id => id === currentUser._id);
+  const isLiked = card.likes.some((i) => i === currentUser._id);
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const cardLikeButtonClassName = (
     `element__button ${isLiked ? 'element__button_active' : ' '}`
   );
 
     function handleClick() {
-      props.onCardClick(props.card);
+      onCardClick(card);
     }
     function handleLikeClick() {
-      props.onCardLike(props.card);
+      onCardLike(card);
     }
     function handleCardDelete() {
-      props.onCardDelete(props.card)
+      onCardDelete(card)
     }
   
     return (
         <div className="element">
-        <img className="element__image" src={props.link} alt={props.name} onClick={handleClick}/>
+        <img className="element__image" src={card.link} alt={card.name} onClick={handleClick}/>
         <div className="element__group">
-            <h2 className="element__title">{props.name}</h2>
+            <h2 className="element__title">{card.name}</h2>
             <figure className="element__likes">
                 <button className={cardLikeButtonClassName} type="button" onClick={handleLikeClick}/>
-                <span className="element__button-count" type="button">{props.likes}</span>
+                <span className="element__button-count" type="button">{card.likes}</span>
             </figure>
         </div>
         <button className={cardDeleteButtonClassName} onClick={handleCardDelete}/>
